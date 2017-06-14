@@ -6,7 +6,7 @@ sub welcome {
   my $self = shift;
 
   # Render template "example/welcome.html.ep" with message
-  $self->render(msg => 'RobertLeap.com');
+  $self->render(msg => 'RobertLeap.com v2');
 }
 
 1;
