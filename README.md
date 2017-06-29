@@ -9,4 +9,4 @@ Perl
 
 Travis-CI
 
-Coveralls.io
+codecov.io
