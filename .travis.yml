@@ -1,10 +1,14 @@
 language: perl
 perl:
   - "5.26"
-before_install:
-  cpanm -n Devel::Cover::Report::Coveralls
+before_script:
+  - cpanm --quiet --notest --skip-satisfied Devel::Cover Devel::Cover::Report::Codecov
 script:
-  perl Makefile.PL && make && cover -test -report coveralls
+  - perl Makefile.PL
+  - make
+  - cover -test
+after_success:
+  - cover -report codecov
 deploy:
   provider: heroku
   buildpack: http://github.com/judofyr/perloku.git
