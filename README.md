@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/rleap/robert_leap.svg?branch=master)](https://travis-ci.org/rleap/robert_leap)
 
-[![Coverage Status](https://coveralls.io/repos/github/rleap/robert_leap/badge.svg?branch=master)](https://coveralls.io/github/rleap/robert_leap?branch=master)
+[![codecov](https://codecov.io/gh/rleap/robert_leap/branch/master/graph/badge.svg)](https://codecov.io/gh/rleap/robert_leap)
 
 # robert_leap
 Robert Leap's Website
