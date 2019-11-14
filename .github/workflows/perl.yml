@@ -12,7 +12,7 @@ jobs:
     - name: check Perl version
       run: perl -v
     - name: install cpanm
-      run: curl -L https://cpanmin.us | perl - App::cpanminus
+      run: curl -L https://cpanmin.us | perl - --sudo App::cpanminus
     - name: check cpanm version
       run:  cpanm --version
     - name: install Devel Cover
