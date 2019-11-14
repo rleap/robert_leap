@@ -17,10 +17,11 @@ jobs:
       run:  cpanm --version
     - name: install Devel Cover
       run:  cpanm --quiet --notest --skip-satisfied Devel::Cover Devel::Cover::Report::Codecov
-    - name: build and test
-      run: |
-        perl Makefile.PL
-        make
-        cover -test
+    - name: build makefile
+      run: perl Makefile.PL
+    - name: make
+      run: make
+    - name: test
+      run: cover -test
     - name: create coverage report
       run: cover -report codecov
