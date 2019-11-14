@@ -1,4 +1,4 @@
-name: CI
+name: robert_leap
 
 on: [push]
 
@@ -11,3 +11,5 @@ jobs:
     - uses: actions/checkout@v1
     - name: Check Perl version
       run: perl --version
+    - name: before_script
+      run: cpanm -version
