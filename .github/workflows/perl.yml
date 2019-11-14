@@ -9,17 +9,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Check Perl version
+    - name: check Perl version
       run: perl -v
-    - name: before_script
-      run: |
-        curl -L https://cpanmin.us | sudo perl - App::cpanminus
-        cpanm --version
-        cpanm --quiet --notest --skip-satisfied Devel::Cover Devel::Cover::Report::Codecov
-    - name: script
+    - name: install cpanm
+      run: curl -L https://cpanmin.us | sudo perl - App::cpanminus
+    - name: check cpanm version
+      run:  cpanm --version
+    - name: install Devel Cover
+      run:  cpanm --quiet --notest --skip-satisfied Devel::Cover Devel::Cover::Report::Codecov
+    - name: build and test
       run: |
         perl Makefile.PL
         make
         cover -test
-    - name: after_success
+    - name: create coverage report
       run: cover -report codecov
