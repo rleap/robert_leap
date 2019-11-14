@@ -1,4 +1,4 @@
-name: robert_leap
+name: Perl CI
 
 on: [push]
 
@@ -10,6 +10,16 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Check Perl version
-      run: perl --version
+      run: perl -v
     - name: before_script
-      run: cpanm -version
+      run: |
+        curl -L https://cpanmin.us | perl - App::cpanminus
+        cpanm -v
+        cpanm --quiet --notest --skip-satisfied Devel::Cover Devel::Cover::Report::Codecov
+    - name: script
+      run: |
+        perl Makefile.PL
+        make
+        cover -test
+    - name: after_success
+      run: cover -report codecov
