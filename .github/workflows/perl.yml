@@ -16,11 +16,9 @@ jobs:
     - name: check cpanm version
       run:  cpanm --version
     - name: install dependencies
-      run:  sudo cpanm --quiet --notest --skip-satisfied ExtUtils::MakeMaker App::mymeta_requires Devel::Cover Devel::Cover::Report::Codecov
+      run:  sudo cpanm --quiet --notest --skip-satisfied Mojolicious Devel::Cover Devel::Cover::Report::Codecov
     - name: build makefile
-      run: |
-        mymeta-requires | sudo cpanm
-        perl Makefile.PL
+      run: perl Makefile.PL
     - name: make
       run: make
     - name: test
