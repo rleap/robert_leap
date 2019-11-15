@@ -16,7 +16,7 @@ jobs:
     - name: check cpanm version
       run:  cpanm --version
     - name: install dependencies
-      run:  sudo cpanm --quiet --notest --skip-satisfied Mojolicious MojoX::Plugin::PODRenderer Devel::Cover Devel::Cover::Report::Codecov
+      run:  sudo cpanm --quiet --notest --skip-satisfied Mojolicious Test::More Test::Mojo Devel::Cover Devel::Cover::Report::Codecov
     - name: build makefile
       run: perl Makefile.PL
     - name: make
