@@ -15,10 +15,12 @@ jobs:
       run: curl -L https://cpanmin.us | perl - --sudo App::cpanminus
     - name: check cpanm version
       run:  cpanm --version
-    - name: install Devel Cover
-      run:  sudo cpanm --quiet --notest --skip-satisfied Devel::Cover Devel::Cover::Report::Codecov
+    - name: install dependencies
+      run:  sudo cpanm --quiet --notest --skip-satisfied ExtUtils::MakeMaker App::mymeta_requires Devel::Cover Devel::Cover::Report::Codecov
     - name: build makefile
-      run: perl Makefile.PL
+      run: |
+        mymeta-requires | sudo cpanm
+        perl Makefile.PL
     - name: make
       run: make
     - name: test
